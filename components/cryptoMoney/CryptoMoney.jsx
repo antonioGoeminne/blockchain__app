@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize: 30,
-        textAlign: 'center'
+        color:'#000',
+        fontFamily:`Roboto`,
     },
     logo:{
         width: 50,
