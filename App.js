@@ -10,7 +10,6 @@ export default function App() {
   if(!loaded) return <AppLoading />
 
  return(
-
    <AppNavigator />
  )
 }

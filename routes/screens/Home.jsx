@@ -4,7 +4,7 @@ import { StyleSheet, View, FlatList, SafeAreaView, StatusBar,Button} from 'react
 import React, { useState } from 'react';
 
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
   
 const [depositar, setDepositar] = useState(false);
 
@@ -16,15 +16,26 @@ const [depositar, setDepositar] = useState(false);
               renderItem={RenderMoney}
               keyExtractor={item => item.id}
             />
-            <Button onPress={() => setDepositar(!depositar)}
-                    title='Depositar'
-              />
-
-
             {
-              depositar && <Button
-                                  title='Confirmar ir a depositar'
-              ></Button>
+              !depositar &&
+              <Button onPress={() => setDepositar(!depositar)}
+              title='Comprar Crypto'
+              />
+            }
+            {
+              depositar &&
+              <View style={styles.buttonWrap}>
+               <Button
+                title='Confirmar'
+                onPress={()=>{
+                  navigation.navigate('comprar')
+                }}
+                ></Button>
+                <Button 
+                onPress={() => setDepositar(!depositar)}
+                title='Cancelar'>
+                </Button>
+                </View>
             }
          </SafeAreaView>
           <StatusBar style="auto" />
@@ -40,5 +51,10 @@ const [depositar, setDepositar] = useState(false);
         justifyContent:'center',
         marginTop: StatusBar.currentHeight || 0
       },
+      buttonWrap:{
+        flexDirection: "row",
+        backgroundColor:'#ffff',
+        justifyContent:'space-around'
+      }
     });
     
