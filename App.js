@@ -1,5 +1,6 @@
-import { AppNavigator } from "./routes/MainNavigation/AppNavigator"
 import { useFonts } from "expo-font"
+import { TabNavigator } from "./components/tab/TabNavigator"
+import { NavigationContainer } from "@react-navigation/native"
 import AppLoading from "expo-app-loading"
 
 export default function App() {
@@ -10,6 +11,8 @@ export default function App() {
   if(!loaded) return <AppLoading />
 
  return(
-   <AppNavigator />
+<NavigationContainer>
+  <TabNavigator />
+</NavigationContainer>
  )
 }

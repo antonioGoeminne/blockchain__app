@@ -22,21 +22,6 @@ const [depositar, setDepositar] = useState(false);
               title='Comprar Crypto'
               />
             }
-            {
-              depositar &&
-              <View style={styles.buttonWrap}>
-               <Button
-                title='Confirmar'
-                onPress={()=>{
-                  navigation.navigate('comprar')
-                }}
-                ></Button>
-                <Button 
-                onPress={() => setDepositar(!depositar)}
-                title='Cancelar'>
-                </Button>
-                </View>
-            }
          </SafeAreaView>
           <StatusBar style="auto" />
         </View>
